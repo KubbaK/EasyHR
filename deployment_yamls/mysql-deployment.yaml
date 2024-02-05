@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      volumes:
+      - name: mysql-pv-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+      containers:
+      - name: mysql
+        image: kubbak/mysql:easyhr
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_DB
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret-config
+              key: DB
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret-config
+              key: USER
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret-config
+              key: PASSWORD
+        volumeMounts:
+        - mountPath: /var/lib/mysqlsql/data
+          name: mysql-pv-storage
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+      
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret-config
+type: Opaque
+data:
+  DB: a3ViZXJuZXRlcw== # kubernetes
+  USER: cm9vdA== # root
+   
