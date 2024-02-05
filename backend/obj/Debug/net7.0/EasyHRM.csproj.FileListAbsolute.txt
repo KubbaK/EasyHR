@@ -1,0 +1,7 @@
+C:\Users\kubak\source\repos\EasyHRM\obj\Debug\net7.0\EasyHRM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubak\source\repos\EasyHRM\obj\Debug\net7.0\EasyHRM.AssemblyInfoInputs.cache
+C:\Users\kubak\source\repos\EasyHRM\obj\Debug\net7.0\EasyHRM.AssemblyInfo.cs
+C:\Users\kubak\source\repos\EasyHRM\obj\Debug\net7.0\EasyHRM.csproj.CoreCompileInputs.cache
+C:\Users\kubak\source\repos\EasyHRM\obj\Debug\net7.0\EasyHRM.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kubak\source\repos\EasyHRM\obj\Debug\net7.0\EasyHRM.RazorAssemblyInfo.cache
+C:\Users\kubak\source\repos\EasyHRM\obj\Debug\net7.0\EasyHRM.RazorAssemblyInfo.cs
