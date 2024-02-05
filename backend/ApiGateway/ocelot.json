@@ -1,0 +1,32 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "courseapi-service",
+          "Port": 8082
+        }
+      ],
+      "UpstreamPathTemplate": "/Courses-api/{everything}",
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "employeeapi-service",
+          "Port": 8083
+        }
+      ],
+      "UpstreamPathTemplate": "/Employee-api/{everything}",
+      "DangerousAcceptAnyServerCertificateValidator": true
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://gatewayapi-service:8081",
+    "DangerousAcceptAnyServerCertificateValidator": true
+  }
+}
